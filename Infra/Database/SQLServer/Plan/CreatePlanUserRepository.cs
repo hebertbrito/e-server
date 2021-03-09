@@ -13,6 +13,11 @@ namespace Infra.Database.SQLServer.Plan
         private readonly IDatabaseHelperClass databaseHelperClass;
         const string TABLE_NAME = "Planos";
 
+        public CreatePlanUserRepository(IDatabaseHelperClass databaseHelperClass)
+        {
+            this.databaseHelperClass = databaseHelperClass;
+        }
+
         public async Task CreatePlanUser(PlanModel planModel)
         {
             var query = this.CreateQuery(planModel);

@@ -26,8 +26,10 @@ namespace Server.Controllers
                     throw new Exception("Model is Invalid");
                 }
 
-                CreatePlanUserRepository createPlanUserRepository = new CreatePlanUserRepository();
+                CreatePlanUserRepository createPlanUserRepository = new CreatePlanUserRepository(databaseHelperClass);
                 DbCreatePlanUser dbCreatePlanUser = new DbCreatePlanUser(createPlanUserRepository);
+                await dbCreatePlanUser.CreatePlanUser(planModel);
+                return Ok();
             }
             catch (Exception ex)
             {

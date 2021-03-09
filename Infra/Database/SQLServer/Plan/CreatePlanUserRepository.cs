@@ -28,9 +28,9 @@ namespace Infra.Database.SQLServer.Plan
         public StringBuilder CreateQuery(PlanModel planModel)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append(" INSERT INTO '"+ TABLE_NAME +"' ");
+            sql.Append(" INSERT INTO Planos ");
             sql.Append(@" VALUES ('" + planModel.PlanName + "', '" + planModel.Name + "', '" + planModel.StartDatePlan + "', '" + planModel.EndDatePlan + "', " +
-                "'" + planModel.TypePerson + "') ");
+                "'" + planModel.TypePerson + "', '" + planModel.RegisterDate + "') ");
 
             return sql;
         }

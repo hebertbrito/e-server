@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Domain.UseCases.UserPlan
 {
-    public interface GetListUserPlan
+    public interface IGetListUserPlan
     {
-        Task<UserPlanModelResponse[]> GetUSerPlanList(UserPlanModel userPlanModel);
+        Task<List<UserPlanModelResponse>> GetUSerPlanList(UserPlanModel userPlanModel);
     }
 }

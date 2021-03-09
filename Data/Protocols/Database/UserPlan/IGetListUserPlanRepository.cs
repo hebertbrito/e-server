@@ -9,6 +9,6 @@ namespace Data.Protocols.Database.UserPlan
 {
     public interface IGetListUserPlanRepository
     {
-        Task<UserPlanModelResponse[]> GetUSerPlanList(UserPlanModel userPlanModel);
+        Task<List<UserPlanModelResponse>> GetUSerPlanList(UserPlanModel userPlanModel);
     }
 }

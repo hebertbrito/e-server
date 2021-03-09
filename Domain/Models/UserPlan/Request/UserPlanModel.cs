@@ -8,7 +8,7 @@ namespace Domain.Models.UserPlan.Request
     public class UserPlanModel
     {
         [StringLength(100)]
-        public string PlanName { get; set; }
+        public string Name { get; set; }
 
         [StringLength(100)]
         public string CPF { get; set; }

@@ -18,7 +18,7 @@ namespace Data.UseCases.UserPlan
         {
             this.getListUserPlanRepository = getListUserPlanRepository;
         }
-        public async Task<UserPlanModelResponse[]> GetUSerPlanList(UserPlanModel userPlanModel)
+        public async Task<List<UserPlanModelResponse>> GetUSerPlanList(UserPlanModel userPlanModel)
         {
             var response = await this.getListUserPlanRepository.GetUSerPlanList(userPlanModel);
 

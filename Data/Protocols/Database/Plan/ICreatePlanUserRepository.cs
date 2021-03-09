@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.UseCases.Plan
+namespace Data.Protocols.Database.Plan
 {
-    public interface ICreatePlan
+    public interface ICreatePlanUserRepository
     {
         Task CreatePlanUser(PlanModel planModel);
     }

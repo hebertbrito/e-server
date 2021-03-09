@@ -27,9 +27,8 @@ namespace Infra.Database.SQLServer.User
 
         public StringBuilder CreateQuery(UserModel userModel)
         {
-            var sql = this.databaseHelperClass.query;
-
-            sql.Append(" INSERT INTO " + TABLE_NAME);
+            StringBuilder sql = new StringBuilder();
+            sql.Append(" INSERT INTO Users ");
             sql.Append(@" VALUES ('" + userModel.Username + "', '" + userModel.RG + "', '" + userModel.CPF + "', '" + userModel.CNPJ + "', '" + userModel.Email + "', " +
                 "'" + userModel.Telephone + "', '" + userModel.DateBirth + "', '" + userModel.RegisterDate + "') ");
 

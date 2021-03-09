@@ -11,15 +11,15 @@ namespace Domain.Models.User.Request
         [StringLength(100)]
         public string Username { get; set; }
 
-        [Required]
+        
         [StringLength(100)]
         public string CPF { get; set; }
 
-        [Required]
+        
         [StringLength(100)]
         public string RG { get; set; }
 
-        [Required]
+        
         [StringLength(100)]
         public string CNPJ { get; set; }
 

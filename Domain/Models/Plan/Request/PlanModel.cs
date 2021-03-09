@@ -7,13 +7,13 @@ namespace Domain.Models.Plan.Request
 {
     public class PlanModel
     {
-        [Required]
-        [StringLength(100)]
-        public string PlanName { get; set; }
+        
+        
+        public int IdUser { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string NameUser { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -22,10 +22,6 @@ namespace Domain.Models.Plan.Request
         [Required]
         [StringLength(100)]
         public string EndDatePlan { get; set; }
-
-        [Required]
-        [StringLength(100)]
-        public string TypePerson { get; set; }
 
         [Required]
         [StringLength(100)]

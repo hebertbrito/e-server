@@ -11,14 +11,21 @@ namespace Infra.Database.SQLServer.User
     public class CreateUserRepository : ICreateUserRepository
     {
         private readonly IDatabaseHelperClass databaseHelperClass;
+        private readonly GenericRepository genericRepository;
         const string TABLE_NAME = "Users";
         public CreateUserRepository(IDatabaseHelperClass databaseHelperClass)
         {
             this.databaseHelperClass = databaseHelperClass;
+            this.genericRepository = new GenericRepository(this.databaseHelperClass);
         }
 
         public async Task CreateUser(UserModel userModel)
         {
+            var value = await this.genericRepository.GetUserByName(userModel.Name);
+            if (value.ID > 0)
+            {
+                throw new Exception("User not exists");
+            }
             var query = this.CreateQuery(userModel);
             this.ExecutionQuery(query);
             await Task.Delay(1000);
@@ -29,8 +36,8 @@ namespace Infra.Database.SQLServer.User
         {
             StringBuilder sql = new StringBuilder();
             sql.Append(" INSERT INTO Users ");
-            sql.Append(@" VALUES ('" + userModel.Username + "', '" + userModel.RG + "', '" + userModel.CPF + "', '" + userModel.CNPJ + "', '" + userModel.Email + "', " +
-                "'" + userModel.Telephone + "', '" + userModel.DateBirth + "', '" + userModel.RegisterDate + "') ");
+            sql.Append(@" VALUES ('" + userModel.Name + "', '" + userModel.RG + "', '" + userModel.CPF + "', '" + userModel.CNPJ + "', '" + userModel.Email + "', " +
+                "'" + userModel.Telephone + "', '" + userModel.DateBirth + "', '" + userModel.RegisterDate + "', '" + userModel.TypeUser + "') ");
 
             return sql;
         }

@@ -11,17 +11,17 @@ using System.Threading.Tasks;
 namespace Server.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/plan/")]
     public class UserPlanController : Controller
     {
-        [Route("plan/create")]
+        [Route("create")]
         [HttpPost]
         public async Task<ActionResult> CreatePlan(PlanModel planModel)
         {
             DatabaseHelperClass databaseHelperClass = new DatabaseHelperClass("Password=123456789;Persist Security Info=True;User ID=sqlserver;Initial Catalog=epharma;Data Source=34.95.222.223");
             try
             {
-                if (!ModelState.IsValid)
+                if(!ModelState.IsValid)
                 {
                     throw new Exception("Model is Invalid");
                 }
@@ -34,7 +34,7 @@ namespace Server.Controllers
             catch (Exception ex)
             {
                 databaseHelperClass.connection.Close();
-                return StatusCode(500, ex);
+                return StatusCode(500, "Internal Server Error");
             }
         }
     }

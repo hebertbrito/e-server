@@ -8,5 +8,6 @@ namespace Infra.Helper
         SqlCommand command { get; set; }
         SqlConnection connection { get; set; }
         StringBuilder query { get; set; }
+        dynamic reader { get; set; }
     }
 }

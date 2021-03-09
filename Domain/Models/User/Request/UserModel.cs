@@ -9,7 +9,7 @@ namespace Domain.Models.User.Request
     {
         [Required]
         [StringLength(100)]
-        public string Username { get; set; }
+        public string Name { get; set; }
 
         
         [StringLength(100)]

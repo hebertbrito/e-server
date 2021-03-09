@@ -9,7 +9,7 @@ namespace Domain.Models.User.Request
     {
         [Required]
         [StringLength(100)]
-        public string Name { get; set; }
+        public string Username { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -38,5 +38,9 @@ namespace Domain.Models.User.Request
         [Required]
         [StringLength(100)]
         public string RegisterDate { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string TypeUser { get; set; }
     }
 }

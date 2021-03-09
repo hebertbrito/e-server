@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 namespace Server.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/user/")]
     public class UserController : Controller
     {
-        [Route("user/create")]
+        [Route("create")]
         [HttpPost]
         public async Task<ActionResult> CreateUser(UserModel userModel)
         {

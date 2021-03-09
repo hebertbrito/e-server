@@ -17,6 +17,10 @@ namespace Domain.Models.Plan.Request
 
         [Required]
         [StringLength(100)]
+        public string PlanName { get; set; }
+
+        [Required]
+        [StringLength(100)]
         public string StartDatePlan { get; set; }
 
         [Required]

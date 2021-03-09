@@ -42,7 +42,7 @@ namespace Infra.Database.SQLServer.Plan
         {
             StringBuilder sql = new StringBuilder();
             sql.Append(" INSERT INTO Plans ");
-            sql.Append(@" VALUES ('" + planModel.IdUser + "', '" + planModel.StartDatePlan + "', '" + planModel.EndDatePlan + "', '" + planModel.RegisterDate + "') ");
+            sql.Append(@" VALUES ('" + planModel.IdUser + "', '" + planModel.PlanName + "', '" + planModel.StartDatePlan + "', '" + planModel.EndDatePlan + "', '" + planModel.RegisterDate + "') ");
 
             return sql;
         }

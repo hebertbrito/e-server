@@ -9,7 +9,7 @@ namespace Domain.Models.Plan.Request
     {
         [Required]
         [StringLength(100)]
-        public string Plan { get; set; }
+        public string PlanName { get; set; }
 
         [Required]
         [StringLength(100)]

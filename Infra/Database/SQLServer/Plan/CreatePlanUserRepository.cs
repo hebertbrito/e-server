@@ -1,36 +1,31 @@
-﻿using Data.Protocols.Database.User;
-using Domain.Models.User.Request;
+﻿using Data.Protocols.Database.Plan;
+using Domain.Models.Plan.Request;
 using Infra.Helper;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infra.Database.SQLServer.User
+namespace Infra.Database.SQLServer.Plan
 {
-    public class CreateUserRepository : ICreateUserRepository
+    public class CreatePlanUserRepository : ICreatePlanUserRepository
     {
         private readonly IDatabaseHelperClass databaseHelperClass;
-        const string TABLE_NAME = "Users";
-        public CreateUserRepository(IDatabaseHelperClass databaseHelperClass)
-        {
-            this.databaseHelperClass = databaseHelperClass;
-        }
+        const string TABLE_NAME = "Planos";
 
-        public async Task CreateUser(UserModel userModel)
+        public async Task CreatePlanUser(PlanModel planModel)
         {
-            var query = this.CreateQuery(userModel);
+            var query = this.CreateQuery(planModel);
             this.ExecutionQuery(query);
             await Task.Delay(1000);
         }
 
-
-        public StringBuilder CreateQuery(UserModel userModel)
+        public StringBuilder CreateQuery(PlanModel planModel)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append(" INSERT INTO Users ");
-            sql.Append(@" VALUES ('" + userModel.Username + "', '" + userModel.RG + "', '" + userModel.CPF + "', '" + userModel.CNPJ + "', '" + userModel.Email + "', " +
-                "'" + userModel.Telephone + "', '" + userModel.DateBirth + "', '" + userModel.RegisterDate + "') ");
+            sql.Append(" INSERT INTO '"+ TABLE_NAME +"' ");
+            sql.Append(@" VALUES ('" + planModel.PlanName + "', '" + planModel.Name + "', '" + planModel.StartDatePlan + "', '" + planModel.EndDatePlan + "', " +
+                "'" + planModel.TypePerson + "') ");
 
             return sql;
         }
